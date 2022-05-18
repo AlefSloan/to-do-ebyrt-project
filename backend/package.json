@@ -1,0 +1,23 @@
+{
+  "name": "todo-ebyrt-project",
+  "version": "1.0.0",
+  "description": "Todo-List-Tecnical-Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlefSloan/to-do-ebyrt-project.git"
+  },
+  "keywords": [
+    "Todo",
+    "List"
+  ],
+  "author": "Alef Sloan <alef_sloan@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlefSloan/to-do-ebyrt-project/issues"
+  },
+  "homepage": "https://github.com/AlefSloan/to-do-ebyrt-project#readme"
+}
