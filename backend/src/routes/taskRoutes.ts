@@ -6,14 +6,9 @@ export default class TaskRoutes {
     private _router = Router(),
     private _taskController: TaskController,
   ) {
-    this._router.get(
-      '/',
-      this._taskController.getAllTasks,
-    );
-    this._router.post(
-      '/',
-      this._taskController.createTask,
-    )
+    this._router.get('/', this._taskController.getAllTasks);
+    this._router.get('/:id', this._taskController.getTaskById);
+    this._router.post('/', this._taskController.createTask);
   }
 
   get router() {

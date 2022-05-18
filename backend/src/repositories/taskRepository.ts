@@ -7,6 +7,16 @@ export default class TaskRepository {
     return response;
   }
 
+  public async getTaskById(id: number) {
+    const response = await prismaDb.task.findUnique({
+      where: {
+        id: id,
+      }
+    });
+
+    return response;
+  }
+
   public async createTask(title: string) {
     const response = await prismaDb.task.create({
       data: {

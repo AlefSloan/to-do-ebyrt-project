@@ -18,6 +18,22 @@ export default class TaskController {
     }
   };
 
+  public getTaskById: RequestHandler = async (req, res, _next) => {
+    try {
+      const { id } = req.params;
+
+      const response = await this._taskService.getTaskById(parseInt(id, 10));
+
+      if (!response) return res.status(404).json({ message: "Task no found!" })
+
+      res.status(200).json(response);
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json({ err });
+    }
+  };
+
   public createTask: RequestHandler = async (req, res, _next) => {
     try {
       const { title } = req.body;
