@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "strict": true,           //Pra avisar alguns erros
     "lib": ["esnext"],        //Versão do Typescript que eu vou usar
     "sourceMap": true,        //Instruções pro JS conseguir voltar para o TS
     "outDir": "./dist",       // Onde o compilador gera o codigo JS
     "module": "commonjs",     // Transforma o "import" pelo "require" na compilação
-    "target": "ES2019",       // Compila o codigo para o ES2019 pra evitar erros de versão
+    "target": "ES2021",       // Compila o codigo para o ES2021 pra evitar erros de versão
     "esModuleInterop": true,  // Modulos que usam o commonjs, traduz pra gente importar normal
     "allowJs": true,          // Inclua no "dist", arquivos JS que estejam no projeto também
     "strictNullChecks": true, // Sinaliza quando valores nas funções podem ser Nulls ou Undefined
-  }
+    "moduleResolution": "node"// De onde vem meus modules
+  },
+  "includes": ["src"]
 }

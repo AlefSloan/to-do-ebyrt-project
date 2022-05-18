@@ -1,6 +1,6 @@
-import prismaDb from "../../prisma";
-export default class TaskRepository {
+import prismaDb from '../../prisma/index';
 
+export default class TaskRepository {
   public async getAllTasks() {
     const response = await prismaDb.task.findMany();
 
@@ -10,7 +10,7 @@ export default class TaskRepository {
   public async getTaskById(id: number) {
     const response = await prismaDb.task.findUnique({
       where: {
-        id: id,
+        id,
       },
     });
 
@@ -20,7 +20,7 @@ export default class TaskRepository {
   public async createTask(title: string) {
     const response = await prismaDb.task.create({
       data: {
-        title: title,
+        title,
       },
     });
 
@@ -30,10 +30,10 @@ export default class TaskRepository {
   public async updateTask(id: number, title: string) {
     const response = await prismaDb.task.update({
       data: {
-        title: title,
+        title,
       },
       where: {
-        id: id
+        id,
       },
     });
 
@@ -43,7 +43,7 @@ export default class TaskRepository {
   public async destroyTask(id: number) {
     const response = await prismaDb.task.delete({
       where: {
-        id: id,
+        id,
       },
     });
 
@@ -53,10 +53,10 @@ export default class TaskRepository {
   public async finishTask(id: number, status: string) {
     const response = await prismaDb.task.update({
       data: {
-        status: status,
+        status,
       },
       where: {
-        id: id,
+        id,
       },
     });
 
