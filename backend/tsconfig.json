@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "lib": ["esnext"],
+    "sourceMap": true,
     "outDir": "./dist",       // Onde o compilador gera o codigo JS
     "module": "commonjs",     // Transforma o "import" pelo "require" na compilação
     "target": "ES2019",       // Compila o codigo para o ES2019 pra evitar erros de versão
