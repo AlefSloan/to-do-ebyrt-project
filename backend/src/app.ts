@@ -1,4 +1,5 @@
 import express from 'express';
+import Factory from './factory';
 
 class App {
   public app: express.Application;
@@ -9,6 +10,8 @@ class App {
     this.app.use(express.json());
 
     this.config();
+
+    this.routes();
   }
 
   private config(): void {
@@ -23,6 +26,10 @@ class App {
     };
 
     this.app.use(accessControl);
+  }
+
+  private routes() {
+    this.app.use('/task', Factory.taskRouter);
   }
 
   // ...
