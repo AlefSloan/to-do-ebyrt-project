@@ -6,7 +6,7 @@ export default class TaskRoutes {
     private _router = Router(),
     private _taskController: TaskController,
   ) {
-    this._router.post(
+    this._router.get(
       '/',
       this._taskController.getAllTasks,
     );
