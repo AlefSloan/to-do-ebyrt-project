@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/AlefSloan/to-do-ebyrt-project/issues"
   },
-  "homepage": "https://github.com/AlefSloan/to-do-ebyrt-project#readme"
+  "homepage": "https://github.com/AlefSloan/to-do-ebyrt-project#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.2"
+  }
 }
