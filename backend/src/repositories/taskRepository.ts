@@ -27,11 +27,10 @@ export default class TaskRepository {
     return response;
   }
 
-  public async updateTask(id: number, title: string, status: string) {
+  public async updateTask(id: number, title: string) {
     const response = await prismaDb.task.update({
       data: {
         title: title,
-        status: status,
       },
       where: {
         id: id
@@ -43,6 +42,19 @@ export default class TaskRepository {
 
   public async destroyTask(id: number) {
     const response = await prismaDb.task.delete({
+      where: {
+        id: id,
+      },
+    });
+
+    return response;
+  }
+
+  public async finishTask(id: number, status: string) {
+    const response = await prismaDb.task.update({
+      data: {
+        status: status,
+      },
       where: {
         id: id,
       },

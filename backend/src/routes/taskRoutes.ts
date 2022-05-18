@@ -11,6 +11,7 @@ export default class TaskRoutes {
     this._router.post('/', this._taskController.createTask);
     this._router.put('/:id', this._taskController.updateTask);
     this._router.delete('/:id', this._taskController.destroyTask);
+    this._router.patch('/:id', this._taskController.finishTask);
   }
 
   get router() {

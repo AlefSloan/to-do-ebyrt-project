@@ -26,13 +26,13 @@ export default class TaskService {
     return response;
   }
 
-  public async updateTask(id: number, title: string, status: string) {
+  public async updateTask(id: number, title: string) {
 
     const existTask = await this._taskRepository.getTaskById(id);
 
     if (!existTask) return null;
 
-    const response = await this._taskRepository.updateTask(id, title, status);
+    const response = await this._taskRepository.updateTask(id, title);
 
     return response;
   }
@@ -45,6 +45,26 @@ export default class TaskService {
 
     const response = await this._taskRepository.destroyTask(id);
 
+    return response;
+  }
+
+  public async finishTask(id: number) {
+
+    const existTask = await this._taskRepository.getTaskById(id);
+    console.log(existTask);
+
+    if (!existTask) return null;
+
+    if (existTask.status === 'pendente') {
+      const newStatus = 'em andamento';
+      const response = await this._taskRepository.finishTask(id, newStatus);
+      return response;
+    } else if (existTask.status === 'pronto') {
+      return null;
+    }
+
+    const newStatus = 'pronto';
+    const response = await this._taskRepository.finishTask(id, newStatus);
     return response;
   }
 }
