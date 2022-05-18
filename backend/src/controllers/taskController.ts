@@ -47,4 +47,21 @@ export default class TaskController {
       res.status(500).json({ err });
     }
   };
+
+  public updateTask: RequestHandler = async (req, res, _next) => {
+    try {
+      const { id } = req.params;
+      const { title, status } = req.body;
+
+      const response = await this._taskService.updateTask(parseInt(id, 10), title, status);
+
+      if (!response) return res.status(404).json({ message: "Task not found!" })
+
+      res.status(200).json(response);
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json({ err });
+    }
+  };
 }

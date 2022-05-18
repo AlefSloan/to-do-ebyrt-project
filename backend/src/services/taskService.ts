@@ -25,4 +25,15 @@ export default class TaskService {
 
     return response;
   }
+
+  public async updateTask(id: number, title: string, status: string) {
+
+    const existTask = await this._taskRepository.getTaskById(id);
+
+    if (!existTask) return null;
+
+    const response = await this._taskRepository.updateTask(id, title, status);
+
+    return response;
+  }
 }

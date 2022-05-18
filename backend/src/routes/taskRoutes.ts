@@ -9,6 +9,7 @@ export default class TaskRoutes {
     this._router.get('/', this._taskController.getAllTasks);
     this._router.get('/:id', this._taskController.getTaskById);
     this._router.post('/', this._taskController.createTask);
+    this._router.put('/:id', this._taskController.updateTask)
   }
 
   get router() {
