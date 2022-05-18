@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "lib": ["esnext"],
-    "sourceMap": true,
+    "strict": true,           //Pra avisar alguns erros
+    "lib": ["esnext"],        //Versão do Typescript que eu vou usar
+    "sourceMap": true,        //Instruções pro JS conseguir voltar para o TS
     "outDir": "./dist",       // Onde o compilador gera o codigo JS
     "module": "commonjs",     // Transforma o "import" pelo "require" na compilação
     "target": "ES2019",       // Compila o codigo para o ES2019 pra evitar erros de versão
