@@ -17,4 +17,18 @@ export default class TaskController {
       res.status(500).json({ err });
     }
   };
+
+  public createTask: RequestHandler = async (req, res, _next) => {
+    try {
+      const { title } = req.body;
+
+      const response = await this._taskService.createTask(title);
+
+      res.status(200).json(response);
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json({ err });
+    }
+  };
 }

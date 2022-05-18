@@ -11,4 +11,10 @@ export default class TaskService {
 
     return response;
   }
+
+  public async createTask(title: string) {
+    const response = await this._taskRepository.createTask(title);
+
+    return response;
+  }
 }

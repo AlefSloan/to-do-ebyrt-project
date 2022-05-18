@@ -10,6 +10,10 @@ export default class TaskRoutes {
       '/',
       this._taskController.getAllTasks,
     );
+    this._router.post(
+      '/',
+      this._taskController.createTask,
+    )
   }
 
   get router() {
