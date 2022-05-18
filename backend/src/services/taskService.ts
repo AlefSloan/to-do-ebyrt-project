@@ -7,7 +7,8 @@ export default class TaskService {
   }
 
   public async getAllTasks() {
+    const response = await this._taskRepository.getAllTasks();
 
-    return 'allTasks';
+    return response;
   }
 }

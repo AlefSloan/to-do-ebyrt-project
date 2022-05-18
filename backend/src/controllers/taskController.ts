@@ -8,7 +8,9 @@ export default class TaskController {
 
   public getAllTasks: RequestHandler = async (_req, res, _next) => {
     try {
-      res.status(200).json({ message: "Its working" });
+      const response = await this._taskService.getAllTasks();
+
+      res.status(200).json(response);
     } catch (err) {
       console.log(err);
 
