@@ -40,7 +40,7 @@ export default class TaskController {
 
       const response = await this._taskService.createTask(title);
 
-      res.status(200).json(response);
+      res.status(201).json(response);
     } catch (err) {
       console.log(err);
 
@@ -57,7 +57,23 @@ export default class TaskController {
 
       if (!response) return res.status(404).json({ message: "Task not found!" })
 
-      res.status(200).json(response);
+      res.status(202).json(response);
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json({ err });
+    }
+  };
+
+  public destroyTask: RequestHandler = async (req, res, _next) => {
+    try {
+      const { id } = req.params;
+
+      const response = await this._taskService.destroyTask(parseInt(id, 10));
+
+      if (!response) return res.status(404).json({ message: "Task not found!" })
+
+      res.status(204).end();
     } catch (err) {
       console.log(err);
 

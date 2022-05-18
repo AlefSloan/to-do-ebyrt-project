@@ -40,4 +40,14 @@ export default class TaskRepository {
 
     return response;
   }
+
+  public async destroyTask(id: number) {
+    const response = await prismaDb.task.delete({
+      where: {
+        id: id,
+      },
+    });
+
+    return response;
+  }
 }

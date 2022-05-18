@@ -36,4 +36,15 @@ export default class TaskService {
 
     return response;
   }
+
+  public async destroyTask(id: number) {
+
+    const existTask = await this._taskRepository.getTaskById(id);
+
+    if (!existTask) return null;
+
+    const response = await this._taskRepository.destroyTask(id);
+
+    return response;
+  }
 }
