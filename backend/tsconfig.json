@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",       // Onde o compilador gera o codigo JS
+    "module": "commonjs",     // Transforma o "import" pelo "require" na compilação
+    "target": "ES2019",       // Compila o codigo para o ES2019 pra evitar erros de versão
+    "esModuleInterop": true,  // Modulos que usam o commonjs, traduz pra gente importar normal
+    "allowJs": true,          // Inclua no "dist", arquivos JS que estejam no projeto também
+    "strictNullChecks": true, // Sinaliza quando valores nas funções podem ser Nulls ou Undefined
+  }
+}
