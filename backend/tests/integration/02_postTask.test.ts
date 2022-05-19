@@ -4,7 +4,7 @@ import chaiHttp from 'chai-http';
 
 import TaskRepository from '../../src/repositories/taskRepository';
 import ITaskFakeData from 'interface/ITaskFakeData';
-import fakePostData, { fakeWrongWithoutTitleData, fakeWrongWithTitleData } from './fakeData/fakeDataPost';
+import fakePostData, { fakePostDataWithWrongTitle, fakePostDataWithoutTitle } from './fakeData/fakeDataPost';
 
 import { app } from '../../src/app';
 
@@ -33,7 +33,7 @@ describe('Checks if the POST/task route request with createTask method arrives c
 
 describe('Checks if the POST/task route request with wrong title in createTask method arrives with a error', () => {
   before(() => {
-    sinon.stub(TaskRepository.prototype, 'createTask').resolves(fakeWrongWithTitleData.mock as unknown as ITaskFakeData);
+    sinon.stub(TaskRepository.prototype, 'createTask').resolves(fakePostDataWithWrongTitle.mock as unknown as ITaskFakeData);
   });
 
   after(() =>{
@@ -41,17 +41,17 @@ describe('Checks if the POST/task route request with wrong title in createTask m
   });
   
   it('should return a error with message and status 400', async () => {
-    const { status, body } = await chai.request(app).post('/tasks').send(fakeWrongWithTitleData.request);
+    const { status, body } = await chai.request(app).post('/tasks').send(fakePostDataWithWrongTitle.request);
 
     expect(status).to.be.equal(400);
     expect(body).to.be.an('object');
-    expect(body).to.deep.equal(fakeWrongWithTitleData.response);
+    expect(body).to.deep.equal(fakePostDataWithWrongTitle.response);
   });
 });
 
 describe('Checks if the POST/task route request without title in createTask method arrives correctly', () => {
   before(() => {
-    sinon.stub(TaskRepository.prototype, 'createTask').resolves(fakeWrongWithoutTitleData.mock as unknown as ITaskFakeData);
+    sinon.stub(TaskRepository.prototype, 'createTask').resolves(fakePostDataWithoutTitle.mock as unknown as ITaskFakeData);
   });
 
   after(() =>{
@@ -59,10 +59,10 @@ describe('Checks if the POST/task route request without title in createTask meth
   });
   
   it('should return a error with message and status 400', async () => {
-    const { status, body } = await chai.request(app).post('/tasks').send(fakeWrongWithoutTitleData.request);
+    const { status, body } = await chai.request(app).post('/tasks').send(fakePostDataWithoutTitle.request);
 
     expect(status).to.be.equal(400);
     expect(body).to.be.an('object');
-    expect(body).to.deep.equal(fakeWrongWithoutTitleData.response);
+    expect(body).to.deep.equal(fakePostDataWithoutTitle.response);
   });
 });

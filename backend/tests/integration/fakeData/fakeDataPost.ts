@@ -14,7 +14,7 @@ const fakePostData = {
   request: { title: "Arrumar o quarto" }
 }
 
-export const fakeWrongWithTitleData = {
+export const fakePostDataWithWrongTitle = {
   mock: {	},
   response: {
 		message: 'Fields "Title" must be at least 5 characters long'
@@ -22,7 +22,7 @@ export const fakeWrongWithTitleData = {
   request: { title: "Arru" }
 }
 
-export const fakeWrongWithoutTitleData = {
+export const fakePostDataWithoutTitle = {
   mock: { },
   response: {
 		message: 'Fields "Title" must be filled'
