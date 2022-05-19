@@ -27,9 +27,6 @@ describe('Checks if the GET/task route request with getAllTasks method arrives c
     expect(body).to.be.an('array');
     expect(body).to.deep.equal(fakeGetAllData.response);
   });
-
-  // Como retirar as chaves que eu quero de um fakeData.request
-  // const { status, body } = await chai.request(app).post('/login').send({ ...fakeData.request, email: 1 });
 });
 
 describe('Checks if the GET/task route request with getTaskById method arrives correctly', () => {
