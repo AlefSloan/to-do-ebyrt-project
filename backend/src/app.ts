@@ -30,7 +30,7 @@ class App {
   }
 
   private routes() {
-    this.app.use('/task', Factory.taskRouter);
+    this.app.use('/tasks', Factory.taskRouter);
   }
 
   // ...
