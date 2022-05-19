@@ -48,7 +48,7 @@ export default class TaskController {
       const { id } = req.params;
       const { title, status } = req.body;
 
-      const response = await this._taskService.updateTask(parseInt(id, 10), title);
+      const response = await this._taskService.updateTask(parseInt(id, 10), title, status);
 
       if (!response) return res.status(404).json({ message: "Task not found!" })
 
@@ -78,7 +78,7 @@ export default class TaskController {
 
       const { status } = req.body;
 
-      const response = await this._taskService.finishTask(parseInt(id, 10), status);
+      const response = await this._taskService.finishTask(parseInt(id, 10));
 
       if (!response) return res.status(404).json({ message: "Task not found!" })
 

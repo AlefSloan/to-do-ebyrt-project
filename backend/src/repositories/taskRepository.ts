@@ -27,10 +27,11 @@ export default class TaskRepository {
     return response;
   }
 
-  public async updateTask(id: number, title: string) {
+  public async updateTask(id: number, title: string, status: string) {
     const response = await prismaDb.task.update({
       data: {
         title,
+        status,
       },
       where: {
         id,
@@ -50,10 +51,10 @@ export default class TaskRepository {
     return response;
   }
 
-  public async finishTask(id: number, status: string) {
+  public async finishTask(id: number) {
     const response = await prismaDb.task.update({
       data: {
-        status,
+        status: 'pronto',
       },
       where: {
         id,

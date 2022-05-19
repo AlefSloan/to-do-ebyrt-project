@@ -25,13 +25,13 @@ export default class TaskService {
     return response;
   }
 
-  public async updateTask(id: number, title: string) {
+  public async updateTask(id: number, title: string, status: string) {
 
     const existTask = await this._taskRepository.getTaskById(id);
 
     if (!existTask) return null;
 
-    const response = await this._taskRepository.updateTask(id, title);
+    const response = await this._taskRepository.updateTask(id, title, status);
 
     return response;
   }
@@ -47,13 +47,13 @@ export default class TaskService {
     return response;
   }
 
-  public async finishTask(id: number, status: string) {
+  public async finishTask(id: number) {
 
     const existTask = await this._taskRepository.getTaskById(id);
 
     if (!existTask) return null;
 
-    const response = await this._taskRepository.finishTask(id, status);
+    const response = await this._taskRepository.finishTask(id);
     
     return response;
   }

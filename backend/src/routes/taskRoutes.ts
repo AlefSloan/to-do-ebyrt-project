@@ -11,7 +11,12 @@ export default class TaskRoutes {
     this._router.get('/', this._taskController.getAllTasks);
     this._router.get('/:id', this._taskController.getTaskById);
     this._router.post('/', TaskMiddleware.validateTitle, this._taskController.createTask);
-    this._router.put('/:id', TaskMiddleware.validateTitle, this._taskController.updateTask);
+    this._router.put(
+      '/:id', 
+      TaskMiddleware.validateTitle, 
+      TaskMiddleware.validateStatus, 
+      this._taskController.updateTask,
+    );
     this._router.delete('/:id', this._taskController.destroyTask);
     this._router.patch('/:id', this._taskController.finishTask);
   }
