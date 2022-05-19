@@ -47,23 +47,14 @@ export default class TaskService {
     return response;
   }
 
-  public async finishTask(id: number) {
+  public async finishTask(id: number, status: string) {
 
     const existTask = await this._taskRepository.getTaskById(id);
-    console.log(existTask);
 
     if (!existTask) return null;
 
-    if (existTask.status === 'pendente') {
-      const newStatus = 'em andamento';
-      const response = await this._taskRepository.finishTask(id, newStatus);
-      return response;
-    } else if (existTask.status === 'pronto') {
-      return null;
-    }
-
-    const newStatus = 'pronto';
-    const response = await this._taskRepository.finishTask(id, newStatus);
+    const response = await this._taskRepository.finishTask(id, status);
+    
     return response;
   }
 }

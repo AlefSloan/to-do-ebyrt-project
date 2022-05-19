@@ -1,5 +1,6 @@
 import express from 'express';
 import Factory from './factory';
+import globalErrorMiddleware from './middlewares/globalErrorMiddleware';
 
 class App {
   public app: express.Application;
@@ -10,7 +11,7 @@ class App {
     this.app.use(express.json());
 
     this.config();
-
+    this.app.use(globalErrorMiddleware.errorHandler);
     this.routes();
   }
 
