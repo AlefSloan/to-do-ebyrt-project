@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && node dist/src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require ts-node/register ./tests/**/*.test.ts --exit"
   },
   "repository": {
     "type": "git",

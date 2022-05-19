@@ -3,7 +3,7 @@ import prismaDb from '../../prisma/index';
 export default class TaskRepository {
   public async getAllTasks() {
     const response = await prismaDb.task.findMany();
-
+    console.log(response);
     return response;
   }
 
