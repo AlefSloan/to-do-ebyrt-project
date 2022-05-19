@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npx tsc && node dist/src/server.js",
-    "test": "mocha --require ts-node/register ./tests/**/*.test.ts --exit"
+    "test": "mocha --require ts-node/register ./tests/**/*.test.ts --exit",
+    "test:coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
     "sinon": "^14.0.0",
     "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8",
